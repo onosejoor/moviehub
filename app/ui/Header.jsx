@@ -66,13 +66,14 @@ const Header = ({ data, search }) => {
             <div className="flex flex-col gap-5">
               <div
                 role="form"
-                className="flex rounded-lg overflow-x-hidden bg-white items-center w-full md:w-fit self-end px-3 gap-2 "
+                className="flex bg-white backdrop-blur rounded-lg overflow-x-hidden  items-center w-full md:w-fit self-end px-3 gap-2 "
               >
                 <select
                   defaultValue={select}
                   onChange={(e) => setSelect(e.target.value)}
                   name="select "
-                  className="outline-none capitalize text-gray-500 cursor-pointer"
+
+                  className="outline-none  bg-transparent text-gray-500 cursor-pointer"
                 >
                   <option
                     value="movie"
@@ -93,7 +94,7 @@ const Header = ({ data, search }) => {
                   name="search"
                   id="search"
                   placeholder="Search Movies"
-                  className="px-3 outline-none text-base py-2 border-l border-r border-blue-600 placeholder:text-gray-500  w-full md:w-[400px] flex-1 "
+                  className="px-3 outline-none text-base py-2 border-l border-r bg-transparent border-blue-600 placeholder:text-gray-500  w-full md:w-[400px] flex-1 "
                 />
                 <button
                   className="appearance-none bg-transparent border-none"

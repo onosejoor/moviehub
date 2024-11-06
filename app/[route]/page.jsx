@@ -1,4 +1,5 @@
 import { getMovieViaRoute } from "../_lib/Functions";
+import InternetError from "../ui/InternetError";
 import RouteMovieSection from "./RouteMovieSection";
 
 const Route = async ({ params }) => {
@@ -12,6 +13,7 @@ const Route = async ({ params }) => {
       </>
     );
   }
-  console.log(request.message);
+
+  return <InternetError />;
 };
 export default Route;

@@ -15,8 +15,6 @@ export async function getMovie() {
     }
     return { success: false, message: "No Data Returned!" };
   } catch (error) {
-    console.log(error.messade);
-
     return { success: false, message: "Network Error" };
   }
 }
@@ -107,7 +105,7 @@ export async function getDetails(id, route) {
       }
       return { success: false, message: "Error" };
     } catch (error) {
-      console.log(error.message);
+      
 
       return { success: false, message: error.message };
     }
@@ -122,7 +120,7 @@ export async function getDetails(id, route) {
       }
       return { success: false, message: "Error" };
     } catch (error) {
-      console.log(error.message);
+      
 
       return { success: false, message: error.message };
     }

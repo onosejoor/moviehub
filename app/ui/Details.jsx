@@ -153,6 +153,7 @@ export default function Details({
               if (company.logo_path) {
                 return (
                   <Img
+                  placeholder={true}
                     key={company.id}
                     className={"w-40 h-20"}
                     src={`${imgUrl}/w185${company.logo_path}`}

@@ -23,7 +23,7 @@ export default function SearchDiv({ data,route }) {
       className="hover:bg-gray-600 rounded-lg hover:text-gray-800 group/link transition-colors last:border-b-0"
     >
       <div className=" h-fit flex gap-5 p-2 border-b flex-wrap md:flex-nowrap border-b-blue-200 sm:border-b-0  items-center ">
-        <div className="h-[100px] sm:w-fit w-full">
+        <div className="h-[100px] sm:w-min w-full">
           <Img
             className={"rounded-xl h-full min-w-full sm:min-w-[150px] object-cover "}
             src={image}

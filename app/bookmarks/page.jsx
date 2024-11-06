@@ -22,7 +22,7 @@ export default async function Bookmark() {
           <h1 className=" mb-9 p-3 px-5 shadow-sm rounded-sm mx-auto bg-blue-200 text-xl text-gray-700 font-inter font-medium w-fit  my-5">
             Bookmarked Movies
           </h1>
-          <div className="flex flex-wrap justify-center sm:justify-start  gap-5">
+          <div className="flex flex-wrap justify-center gap-5">
             {filterMovie.length > 0 ? (
               
               filterMovie.map((movie, index) => {
@@ -52,7 +52,7 @@ export default async function Bookmark() {
           <h1 className=" mb-9 p-3 px-5 shadow-sm rounded-sm mx-auto bg-blue-200 text-xl text-gray-700 font-inter font-medium w-fit capitalize  my-5">
             Bookmarked Tv series
           </h1>
-          <div className="flex flex-wrap justify-center sm:justify-start  gap-5">
+          <div className="flex flex-wrap justify-center   gap-5">
             {filterMovie2.length > 0  ? (
               filterMovie2.map((movie, index) => {
                 return (

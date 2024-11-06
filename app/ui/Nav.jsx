@@ -9,7 +9,7 @@ export default function Nav() {
       <aside className="min-w-14 pr-1">
         <nav
           data-nav={open}
-          className="flex data-[nav=true]:w-56 flex-col group/nav px-1 gap-5 sm:hover:w-56 duration-100 transition-all sm:hover:justify-start w-14 fixed z-50 top-0 h-screen bg-gray-950 py-5  border-white border-r"
+          className="flex data-[nav=true]:w-56 flex-col group/nav px-1 gap-5 sm:hover:w-56 duration-100 transition-all sm:hover:justify-start w-14 fixed z-50 top-0 h-screen bg-gray-950 py-5 border-r   border-r-white"
         >
           {open && (
             <div

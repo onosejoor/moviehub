@@ -1,4 +1,5 @@
 import { getMovie } from "../_lib/Functions";
+import InternetError from "./InternetError";
 import { MovieSection } from "./MovieSection";
 
 const Body = async () => {
@@ -11,7 +12,7 @@ const Body = async () => {
       </>
     );
   }
-  console.log(request.message);
+  return <InternetError  />
 };
 
 export default Body;

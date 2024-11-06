@@ -16,7 +16,7 @@ const RouterMovieList = ({
 
   return (
     <>
-      <div className="relative flex flex-col gap-5  max-w-56 bg-white overflow-hidden h-full ">
+      <div className="relative flex flex-col gap-5  w-[200px] bg-white overflow-hidden h-full ">
         <div className="group/link ">
           {" "}
           <div className="relative overflow-hidden h-72 ">
@@ -83,7 +83,7 @@ const RouterMovieList = ({
               alt={title}
             />
             {adult && (
-              <strong className="absolute right-0 top-0 p-5 rounded-full bg-white text-black ">
+              <strong className="absolute right-[10px] top-[10px] p-2 rounded-full bg-blue-100 text-black ">
                 18+
               </strong>
             )}
