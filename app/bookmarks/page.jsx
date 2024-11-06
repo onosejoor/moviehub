@@ -24,7 +24,6 @@ export default async function Bookmark() {
           </h1>
           <div className="flex flex-wrap justify-center gap-5">
             {filterMovie.length > 0 ? (
-              
               filterMovie.map((movie, index) => {
                 return (
                   <RouterMovieList
@@ -53,7 +52,7 @@ export default async function Bookmark() {
             Bookmarked Tv series
           </h1>
           <div className="flex flex-wrap justify-center   gap-5">
-            {filterMovie2.length > 0  ? (
+            {filterMovie2.length > 0 ? (
               filterMovie2.map((movie, index) => {
                 return (
                   <RouterMovieList

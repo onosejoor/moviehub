@@ -24,7 +24,6 @@ export default function BookMarkBtn({
 
   async function setCookie() {
     const setFunction = await insertCookie(data);
-    console.log(setFunction);
 
     if (setFunction.success) {
       return toast.success(setFunction.message);
@@ -34,8 +33,6 @@ export default function BookMarkBtn({
   }
   async function delCookie() {
     const setFunction = await deleteCookie(id, route);
-    console.log(setFunction);
-
     if (setFunction.success) {
       return toast.success(setFunction.message);
     } else {

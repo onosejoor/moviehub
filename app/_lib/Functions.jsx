@@ -193,7 +193,7 @@ export async function deleteCookie(id) {
 
 export async function retrieveCookie() {
   const cookie = await cookies();
-  const movieCookie = cookie.get("movie").value;
+  const movieCookie = cookie.get("movie")?.value;
 
   if (movieCookie && JSON.parse(movieCookie).length > 0) {
     return { success: true, data: JSON.parse(movieCookie) };
