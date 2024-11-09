@@ -23,7 +23,7 @@ export default function Error() {
         className=" bg-blue-300 border-white border-2 capitalize px-5 py-3 w-fit rounded-lg hover:bg-blue-700 duration-150 hover:text-white "
         //   onClick={}
       >
-        go to homepage
+        retry
       </button>
     </div>
   </div>

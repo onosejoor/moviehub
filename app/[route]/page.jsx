@@ -6,11 +6,11 @@ import NotFound from "../not-found";
 
 const Route = async ({ params }) => {
   const include = ["tv", "top_rated", "popular", "now_playing"];
-  if (!route.includes(include)) {
-    return <NotFound />
-  }
 
   const { route } = await params;
+  if (!include.includes(route)) {
+    return <NotFound />;
+  }
   const request = await getMovieViaRoute(route);
 
   if (request.success) {
@@ -21,6 +21,6 @@ const Route = async ({ params }) => {
       </>
     );
   }
-  return <InternetError />
+  return <InternetError />;
 };
 export default Route;
