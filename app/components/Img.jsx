@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Img({
   className,
@@ -8,6 +10,7 @@ export default function Img({
   action,
   placeholder,
 }) {
+  const [fSrc, setFSrc] = useState(src);
   return !placeholder ? (
     <Image
       sizes="100%"
@@ -15,8 +18,11 @@ export default function Img({
       height={1080}
       onClick={action}
       alt={alt}
-      src={src}
+      src={fSrc}
       style={style}
+      onError={() => {
+        setFSrc("/placeholder.jpeg");
+      }}
       quality={100}
       placeholder="blur"
       blurDataURL="/placeholder.jpeg"

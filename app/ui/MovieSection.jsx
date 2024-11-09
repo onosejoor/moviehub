@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MovieList from "../components/MovieList";
 import Header from "./Header";
 import { getPage } from "../_lib/Functions";
 import Loading from "../loading";
+import toast from "react-hot-toast";
 
 export function MovieSection({ movie, page }) {
   const [data, setData] = useState({
@@ -22,10 +23,15 @@ export function MovieSection({ movie, page }) {
           movie: data,
           page: page,
         });
+        window.scrollTo({
+          top: 0,
+        });
         setLoading(false);
+      } else {
+        toast.error(request.message);
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
     setLoading(false);
   }
@@ -43,9 +49,8 @@ export function MovieSection({ movie, page }) {
           <h1 className=" mb-9 p-3 px-5 shadow-sm rounded-sm bg-blue-50 text-xl text-gray-700 font-inter font-medium w-fit  my-5">
             Trending Movies
           </h1>
-          <div className="flex flex-wrap md:gap-10 gap-3 gap-y-10 md:justify-between justify-evenly ">
+          <div className="grid grid-cols-1  md:grid-cols-3 lg:grid-cols-5 gap-3 gap-y-10 place-items-center">
             {" "}
-            
             {data.movie.map((movie, index) => {
               return (
                 <MovieList
@@ -81,18 +86,4 @@ export function MovieSection({ movie, page }) {
       </div>
     </>
   );
-}
-
-{
-  /* <Button
-          text={"« Previous"}
-          className={"bg-blue-100 py-2"}
-          // action={() => handleAction(page - 1)}
-        />
-        <b className="font-rubik text-base text-gray-950">{page}</b>
-        <Button
-          text={"Next  »"}
-          className={"hover:bg-blue-500 hover:text-white py-2"}
-          // action={() => handleAction(page + 1)}
-        /> */
 }

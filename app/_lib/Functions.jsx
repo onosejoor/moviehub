@@ -28,8 +28,6 @@ export async function getPage(pageNumber) {
     if (response) {
       return { success: true, data: response.results, page: response.page };
     }
-    console.log(request.statusText);
-
     return { success: false, message: "No Data Returned!" };
   } catch (error) {
     return { success: false, message: "Network Error" };
@@ -63,6 +61,7 @@ export async function getMovieViaRoute(route) {
     return { success: false, message: "Network Error" };
   }
 }
+
 export async function getPageViaRoute(pageNumber, route) {
   try {
     if (route !== "tv") {
@@ -105,8 +104,6 @@ export async function getDetails(id, route) {
       }
       return { success: false, message: "Error" };
     } catch (error) {
-      
-
       return { success: false, message: error.message };
     }
   } else {
@@ -120,8 +117,6 @@ export async function getDetails(id, route) {
       }
       return { success: false, message: "Error" };
     } catch (error) {
-      
-
       return { success: false, message: error.message };
     }
   }
@@ -157,6 +152,9 @@ export async function insertCookie(data) {
     date: date,
     route: route,
   };
+  if (!setObject.title) {
+    return { success: false, message: "No Movie Data" };
+  }
   const getCookie = await retrieveCookie();
 
   if (!getCookie.success) {
@@ -202,4 +200,22 @@ export async function retrieveCookie() {
     success: false,
     message: "No Movie/Tv series has been bookmarked yey",
   };
+}
+
+export async function getVideo(id, route) {
+  try {
+    const decode = atob(route);
+    const request = await axios.get(
+      `${baseUrl}/${decode !== "tv" ? "movie" : "tv"}/${id}/videos?${apikey}`
+    );
+
+    const response = await request.data;
+
+    if (response) {
+      return { success: true, data: response.results };
+    }
+    return { success: false, message: "Error" };
+  } catch (error) {
+    return { success: false, message: error.message };
+  }
 }

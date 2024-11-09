@@ -1,5 +1,8 @@
+import BackButton from "../components/BackButton";
 import Img from "../components/Img";
 import Modal from "../components/Modal";
+import TrailerBtn from "../components/TrailerBtn";
+import BookMarkBtn from "./BookMarkBtn";
 
 export default function Details({
   adult,
@@ -9,38 +12,59 @@ export default function Details({
   backdrop,
   runtime,
   title,
+  id,
   vote,
   languages,
   companies,
   genres,
+  route,
 }) {
   const imgUrl = process.env.IMG_URL;
   return (
     <>
       <section className="p-5">
         <div className="flex items-center flex-col md:flex-row py-5 w-full  gap-10">
-          <div className="h-full w-full md:min-w-72 lg:min-w-96 self-start ">
+          <div className="h-full w-full md:min-w-72 lg:max-w-[400px] self-start grid gap-3">
+            <div className="flex justify-between">
+              <BackButton />
+              <BookMarkBtn
+                id={id}
+                path={src}
+                rating={vote}
+                adult={adult}
+                title={title}
+                route={route}
+                date={release_date}
+              />
+            </div>
+
             <Img
               src={src}
               alt={title}
               className={" min-w-full  h-full rounded-xl"}
             />
           </div>
-          <div>
+          <div className="self-center">
             <div className="flex items-center md:items-start flex-col gap-5">
-              <div className="flex gap-5 items-center">
-                <h2 className="text-4xl sm:text-left text-center md:w-4/5 w-full font-semibold flex items-center gap-5">
-                  {title}{" "}
-                </h2>
-                {adult && (
-                  <span className="p-2 rounded-full bg-blue-200 text-xs ">
-                    18+
-                  </span>
-                )}
+              <div className="flex flex-col gap-5">
+                <TrailerBtn route={route} id={id} />
+                <div className="flex gap-5 items-center">
+                  {" "}
+                  <h2 className="text-4xl sm:text-left text-center md:w-4/5 w-full font-semibold flex items-center gap-5">
+                    {title}{" "}
+                  </h2>
+                  {adult && (
+                    <span className="p-2 rounded-full bg-blue-200 text-xs ">
+                      18+
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div className="flex flex-col gap-7 my-5">
-                <p className="text-gray-700 lg:w-4/5 w-full text-center lg:text-left">{overview}</p>
+                <p className="text-gray-700 lg:w-4/5 w-full text-center lg:text-left">
+                  {overview}
+                </p>
 
                 <div className="flex gap-5 flex-wrap md:justify-start justify-center">
                   <div className="flex gap-2">
@@ -153,7 +177,7 @@ export default function Details({
               if (company.logo_path) {
                 return (
                   <Img
-                  placeholder={true}
+                    placeholder={true}
                     key={company.id}
                     className={"w-40 h-20"}
                     src={`${imgUrl}/w185${company.logo_path}`}

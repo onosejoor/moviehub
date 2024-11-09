@@ -12,7 +12,7 @@ export default function InternetError() {
           alt={"no data here"}
           src={"/svg/error.svg"}
           placeholder={true}
-          className={"h-[500px] w-fit mx-auto"}
+          className={"w-[400px]  mx-auto"}
         />
         <h2 className="font-normal text-2xl text-gray-700">
           Poor Internet Connection

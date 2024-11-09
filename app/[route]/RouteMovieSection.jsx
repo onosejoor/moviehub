@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getPageViaRoute } from "../_lib/Functions";
 import Loading from "../loading";
 import Header from "../ui/Header";
@@ -22,6 +22,9 @@ export default function RouteMovieSection({ movie, page, route }) {
           movie: data,
           page: page,
         });
+        window.scrollTo({
+          top: 0,
+        });
         setLoading(false);
       }
     } catch (error) {
@@ -43,11 +46,10 @@ export default function RouteMovieSection({ movie, page, route }) {
           <h2 className=" mb-9 p-3 px-5 shadow-sm rounded-sm bg-blue-50 text-xl text-gray-700 font-inter font-medium w-fit capitalize my-5">
             Browse Your {route !== "tv" ? `${route} movies` : `${route} series`}
           </h2>
-          <div className="flex flex-wrap md:gap-10 gap-3 gap-y-10 md:justify-between justify-evenly ">
+          <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 gap-y-10 place-items-center">
             {" "}
             {data.movie &&
               data.movie.map((movie, index) => {
-              
                 return (
                   <RouterMovieList
                     key={movie.id}

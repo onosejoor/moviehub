@@ -20,7 +20,7 @@ const RouterMovieList = ({
         <div className="group/link ">
           {" "}
           <div className="relative overflow-hidden h-72 ">
-            <Link href={`${route}/${id.toString()}`}>
+            <Link href={`${route}/${id}`}>
               <div className=" flex h-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  opacity-0 absolute z-0 duration-200  group-hover/link:z-1 group-hover/link:opacity-100">
                 <svg
                   fill="#000000"

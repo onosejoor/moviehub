@@ -5,8 +5,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+
   theme: {
     extend: {
+      screens: {
+        sm: "550px",
+      },
+      gridTemplateRows: {
+        row: "auto 1fr auto",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -29,8 +36,9 @@ module.exports = {
       maxWidth: {
         300: "300px",
         270: "270px",
-      },minWidth:{
-        half: "500px"
+      },
+      minWidth: {
+        half: "500px",
       },
 
       fontSize: {
@@ -39,14 +47,14 @@ module.exports = {
       fontFamily: {
         rubik: ["Rubik", "serif"],
         roboto: ["Roboto", "serif"],
-        inter: ["Inter", "sans-serif"]
+        inter: ["Inter", "sans-serif"],
       },
       gridTemplateColumns: {
         half: "repeat(4, minmax(0,0.5fr))",
       },
-      zIndex:{
-        1: "1"
-      }
+      zIndex: {
+        1: "1",
+      },
     },
   },
   plugins: [],

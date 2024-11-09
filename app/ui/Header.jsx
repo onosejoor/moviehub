@@ -17,8 +17,6 @@ const Header = ({ data, search }) => {
     if (searchAPI.success) {
       const response = searchAPI.data;
       const slicedData = response.slice(0, 5);
-      console.log(slicedData);
-
       setSearchMovie(slicedData);
     }
   }
@@ -35,7 +33,7 @@ const Header = ({ data, search }) => {
 
   return (
     <>
-      <header className="md:h-[580px] h-screen w-full relative overflow-hidden">
+      <header className="lg:h-[580px] h-screen w-full relative overflow-hidden">
         <div className=" py-2 w-full md:px-10 px-5 md:flex-row gap-5 flex absolute z-10 top-2 md:justify-between md:items-center flex-col justify-center">
           <div className="roundes-1/2 self-start  ">
             <Link href={"/"}>
@@ -72,7 +70,6 @@ const Header = ({ data, search }) => {
                   defaultValue={select}
                   onChange={(e) => setSelect(e.target.value)}
                   name="select "
-
                   className="outline-none  bg-transparent text-gray-500 cursor-pointer"
                 >
                   <option
@@ -128,17 +125,25 @@ const Header = ({ data, search }) => {
                   </svg>
                 </button>
               </div>
-              {searchMovie.length > 0 && (
+              {searchMovie.length > 0 ? (
                 <div className="flex w-full md:max-w-[550px] overflow-auto no-scrollbar h-[350px] md:h-[450px] ml-auto flex-col gap-1 bg-transparent backdrop-blur-md backdrop-brightness-50 rounded-xl p-2  border-2 border-white ">
                   {searchMovie.map((movie) => {
-                    return <SearchDiv key={movie.id} data={movie} route={select} />;
+                    return (
+                      <SearchDiv key={movie.id} data={movie} route={select} />
+                    );
                   })}
                 </div>
-              )}
+              ) : text.trim() ? (
+                <div
+                  className=" h-fit px-5 py-2 border-[2px] rounded-lg backdrop-brightness-50 border-white text-white backdrop-blur-lg items-center capitalize"
+                >
+                  No Result found with the keyword {text}
+                </div>
+              ) : null}
             </div>
           </>
         </div>
-        <div className="">
+        <div>
           <Img
             className={
               "w-full object-cover md:h-full h-screen filter brightness-50"

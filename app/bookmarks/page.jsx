@@ -1,6 +1,7 @@
 import RouterMovieList from "../[route]/RouterMovieList";
 import Img from "../components/Img";
 import { retrieveCookie } from "../_lib/Functions";
+import NoData from "../components/NoData";
 
 export default async function Bookmark() {
   const cookie = await retrieveCookie();
@@ -69,23 +70,13 @@ export default async function Bookmark() {
                 );
               })
             ) : (
-              <Img
-                alt={"no data here"}
-                src={"/svg/no_data.svg"}
-                className={"h-[200px] w-fit mx-auto"}
-              />
+              <NoData className={"h-[200px]"} />
             )}
           </div>
         </section>
       </>
     );
   } else {
-    return (
-      <Img
-        alt={"no data here"}
-        src={"/svg/no_data.svg"}
-        className={"h-[500px] w-fit mx-auto"}
-      />
-    );
+    return <NoData className={"h-[500px]"}  />;
   }
 }

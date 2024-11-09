@@ -12,6 +12,8 @@ const Body = async () => {
       </>
     );
   }
+  console.log(request.message);
+  
   return <InternetError  />
 };
 

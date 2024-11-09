@@ -18,45 +18,102 @@ export default function Nav() {
             ></div>
           )}
           <ul className="list-none gap-5 flex flex-col overflow-x-hidden w-full no-scrollbar px-1">
-            <li className=" py-[3px] sm:hidden duration-200 w-fit rounded-sm hover:bg-gray-800">
-              <svg
-                className="self-start"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                height={"40px"}
-                onClick={() => {
-                  setOpen((prev) => !prev);
-                  console.log(open);
-                }}
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    d="M18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z"
-                    fill="#fff"
-                  ></path>{" "}
-                  <path
-                    d="M18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H6C5.58579 12.75 5.25 12.4142 5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H18C18.4142 11.25 18.75 11.5858 18.75 12Z"
-                    fill="#fff"
-                  ></path>{" "}
-                  <path
-                    d="M18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16Z"
-                    fill="#fff"
-                  ></path>{" "}
-                </g>
-              </svg>
-            </li>
+            {!open ? (
+              <li className=" py-[3px] sm:hidden duration-100 w-fit rounded-sm hover:bg-gray-800">
+                <svg
+                  className="self-start"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height={"40px"}
+                  onClick={() => {
+                    setOpen((prev) => !prev);
+                    console.log(open);
+                  }}
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <path
+                      d="M18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z"
+                      fill="#fff"
+                    ></path>{" "}
+                    <path
+                      d="M18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H6C5.58579 12.75 5.25 12.4142 5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H18C18.4142 11.25 18.75 11.5858 18.75 12Z"
+                      fill="#fff"
+                    ></path>{" "}
+                    <path
+                      d="M18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16Z"
+                      fill="#fff"
+                    ></path>{" "}
+                  </g>
+                </svg>
+              </li>
+            ) : (
+              <li className="duration-100 p-[3px] w-fit rounded-sm hover:bg-gray-800">
+                <svg
+                  fill="#ffffff"
+                  height={"40px"}
+                  viewBox="0 0 32 32"
+                  version="1.1"
+                  onClick={() => {
+                    setOpen((prev) => !prev);
+                    console.log(open);
+                  }}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <title>cancel2</title>{" "}
+                    <path d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"></path>{" "}
+                  </g>
+                </svg>
+              </li>
+            )}
+            <Links
+              link={"/"}
+              text={"home"}
+              action={() => setOpen(false)}
+              svg={
+                <>
+                  <svg
+                    height="25px"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      {" "}
+                      <path
+                        d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"
+                        fill="#ffffff"
+                      ></path>{" "}
+                    </g>
+                  </svg>
+                </>
+              }
+              className={"group-hover:w-full"}
+            />{" "}
             <Links
               link={"/popular"}
               text={"Trending Today"}
-              second={"/"}
               action={() => setOpen(false)}
               svg={
                 <>
@@ -284,3 +341,325 @@ export default function Nav() {
     </>
   );
 }
+
+// export default function Nav() {
+//   const [open, setOpen] = useState(false);
+//   const [bottomNav, setBottomNav] = useState(false);
+
+//   return (
+//     <>
+//       <aside className="min-w-14 h-full pr-1">
+//         <nav
+//           data-nav={open}
+//           data-bottomnav={bottomNav}
+//           className="flex h-fit sm:h-screen border-t border-t-black sm:border-t-0 sm:data-[nav=true]:w-56 flex-col sm:py-5 group/nav px-1 gap-5 lg:hover:w-56  duration-100 transition-all  sm:w-14 fixed z-50 bottom-0 sm:left-0  bg-gray-50 sm:bg-gray-950 py-2 border-r overflow-auto  border-r-white"
+//         >
+//           {open && (
+//             <div
+//               className="fixed -z-1 top-0 left-0 h-full w-full group-data-[nav=false]:hidden"
+//               onClick={() => setOpen(false)}
+//             ></div>
+//           )}
+
+//           <ul className="list-none gap-5 grid grid-cols-4 grid-rows-1 sm:flex sm:flex-col justify-between sm:justify-normal overflow-x-hidden w-full no-scrollbar px-1 sm:items-start group-data-[nav=true]/nav:h-full group-data-[nav=true]/nav:flex-col overflow-auto">
+//             {!open ? (
+//               <li title="show nav" className=" py-[3px] lg:hidden duration-100 w-fit rounded-sm hover:bg-gray-300 h-fit my-auto sm:my-0">
+//                 <svg
+//                   className="self-start fill-gray-950 sm:fill-white"
+//                   viewBox="0 0 24 24"
+//                   xmlns="http://www.w3.org/2000/svg"
+//                   height={"40px"}
+//                   onClick={() => {
+//                     setOpen((prev) => !prev);
+//                   }}
+//                 >
+//                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+//                   <g
+//                     id="SVGRepo_tracerCarrier"
+//                     strokeLinecap="round"
+//                     strokeLinejoin="round"
+//                   ></g>
+//                   <g id="SVGRepo_iconCarrier">
+//                     {" "}
+//                     <path d="M18.75 8C18.75 8.41421 18.4142 8.75 18 8.75H6C5.58579 8.75 5.25 8.41421 5.25 8C5.25 7.58579 5.58579 7.25 6 7.25H18C18.4142 7.25 18.75 7.58579 18.75 8Z"></path>{" "}
+//                     <path d="M18.75 12C18.75 12.4142 18.4142 12.75 18 12.75H6C5.58579 12.75 5.25 12.4142 5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H18C18.4142 11.25 18.75 11.5858 18.75 12Z"></path>{" "}
+//                     <path d="M18.75 16C18.75 16.4142 18.4142 16.75 18 16.75H6C5.58579 16.75 5.25 16.4142 5.25 16C5.25 15.5858 5.58579 15.25 6 15.25H18C18.4142 15.25 18.75 15.5858 18.75 16Z"></path>{" "}
+//                   </g>
+//                 </svg>
+//               </li>
+//             ) : (
+//               <li title="hide nav" className="duration-100 p-[3px] w-fit rounded-sm hover:bg-gray-800 h-fit hover:*:fill-white my-auto sm:my-0">
+//                 <svg
+//                   className="fill-gray-950 sm:fill-white"
+//                   height={"40px"}
+//                   viewBox="0 0 32 32"
+//                   version="1.1"
+//                   onClick={() => {
+//                     setOpen((prev) => !prev);
+//                     console.log(open);
+//                   }}
+//                   xmlns="http://www.w3.org/2000/svg"
+//                 >
+//                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+//                   <g
+//                     id="SVGRepo_tracerCarrier"
+//                     strokeLinecap="round"
+//                     strokeLinejoin="round"
+//                   ></g>
+//                   <g id="SVGRepo_iconCarrier">
+//                     {" "}
+//                     <title>cancel</title>{" "}
+//                     <path d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"></path>{" "}
+//                   </g>
+//                 </svg>
+//               </li>
+//             )}
+//             <Links
+//               link={"/"}
+//               text={"home"}
+//               action={() => setOpen(false)}
+//               svg={
+//                 <>
+//                   <svg
+//                     height="25px"
+//                     viewBox="0 0 16 16"
+//                     className="fill-slate-700 sm:fill-white"
+//                     xmlns="http://www.w3.org/2000/svg"
+//                   >
+//                     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+//                     <g
+//                       id="SVGRepo_tracerCarrier"
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                     ></g>
+//                     <g id="SVGRepo_iconCarrier">
+//                       {" "}
+//                       <path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"></path>{" "}
+//                     </g>
+//                   </svg>
+//                 </>
+//               }
+//               className={
+//                 "group-hover:w-full group-data-[nav=true]/nav:flex-row"
+//               }
+//             />{" "}
+//             <Links
+//               link={"/popular"}
+//               text={"Trending Today"}
+//               action={() => setOpen(false)}
+//               svg={
+//                 <>
+//                   <svg
+//                     viewBox="0 0 32 32"
+//                     className="group-hover/svg:fill-white fill-slate-700 sm:fill-white  group-hover/svg:stroke-white "
+//                     version="1.1"
+//                     height={"25px"}
+//                     xmlns="http://www.w3.org/2000/svg"
+//                   >
+//                     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+//                     <g
+//                       id="SVGRepo_tracerCarrier"
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                     ></g>
+//                     <g id="SVGRepo_iconCarrier">
+//                       {" "}
+//                       <path d="M15.888 31.977c-7.539 0-12.887-5.228-12.887-12.431 0-3.824 2.293-7.944 2.39-8.116 0.199-0.354 0.59-0.547 0.998-0.502 0.404 0.052 0.736 0.343 0.84 0.736 0.006 0.024 0.624 2.336 1.44 3.62 0.548 0.864 1.104 1.475 1.729 1.899-0.423-1.833-0.747-4.591-0.22-7.421 1.448-7.768 7.562-9.627 7.824-9.701 0.337-0.097 0.695-0.010 0.951 0.223 0.256 0.235 0.373 0.586 0.307 0.927-0.010 0.054-1.020 5.493 1.123 10.127 0.195 0.421 0.466 0.91 0.758 1.399 0.083-0.672 0.212-1.386 0.41-2.080 0.786-2.749 2.819-3.688 2.904-3.726 0.339-0.154 0.735-0.104 1.027 0.126 0.292 0.231 0.433 0.603 0.365 0.969-0.011 0.068-0.294 1.938 1.298 4.592 1.438 2.396 1.852 3.949 1.852 6.928 0 7.203-5.514 12.43-13.111 12.43zM6.115 14.615c-0.549 1.385-1.115 3.226-1.115 4.931 0 6.044 4.506 10.43 10.887 10.43 6.438 0 11.11-4.386 11.11-10.431 0-2.611-0.323-3.822-1.567-5.899-0.832-1.386-1.243-2.633-1.439-3.625-0.198 0.321-0.382 0.712-0.516 1.184-0.61 2.131-0.456 4.623-0.454 4.649 0.029 0.446-0.242 0.859-0.664 1.008s-0.892 0.002-1.151-0.364c-0.075-0.107-1.854-2.624-2.637-4.32-1.628-3.518-1.601-7.323-1.434-9.514-1.648 0.96-4.177 3.104-4.989 7.466-0.791 4.244 0.746 8.488 0.762 8.529 0.133 0.346 0.063 0.739-0.181 1.018-0.245 0.277-0.622 0.4-0.986 0.313-0.124-0.030-2.938-0.762-4.761-3.634-0.325-0.514-0.617-1.137-0.864-1.742z"></path>{" "}
+//                     </g>
+//                   </svg>
+//                 </>
+//               }
+//               className={
+//                 "group-hover:w-full group-data-[nav=true]/nav:flex-row"
+//               }
+//             />{" "}
+//             <Links
+//               link={"/top_rated"}
+//               action={() => setOpen(false)}
+//               text={"top rated"}
+//               svg={
+//                 <>
+//                   <svg
+//                     viewBox="0 0 24 24"
+//                     className="group-hover/svg:fill-white  fill-slate-700 sm:fill-white group-hover/svg:stroke-white "
+//                     xmlns="http://www.w3.org/2000/svg"
+//                     height={"25px"}
+//                   >
+//                     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+//                     <g
+//                       id="SVGRepo_tracerCarrier"
+//                       strokeLinecap="round"
+//                       strokeLinejoin="round"
+//                     ></g>
+//                     <g id="SVGRepo_iconCarrier">
+//                       {" "}
+//                       <path
+//                         d="M7.43361 9.90622C5.34288 10.3793 4.29751 10.6158 4.04881 11.4156C3.8001 12.2153 4.51276 13.0487 5.93808 14.7154L6.30683 15.1466C6.71186 15.6203 6.91438 15.8571 7.00548 16.1501C7.09659 16.443 7.06597 16.759 7.00474 17.3909L6.94899 17.9662C6.7335 20.19 6.62575 21.3019 7.27688 21.7962C7.928 22.2905 8.90677 21.8398 10.8643 20.9385L11.3708 20.7053C11.927 20.4492 12.2052 20.3211 12.5 20.3211C12.7948 20.3211 13.073 20.4492 13.6292 20.7053L14.1357 20.9385C16.0932 21.8398 17.072 22.2905 17.7231 21.7962C18.3742 21.3019 18.2665 20.19 18.051 17.9662M19.0619 14.7154C20.4872 13.0487 21.1999 12.2153 20.9512 11.4156C20.7025 10.6158 19.6571 10.3793 17.5664 9.90622L17.0255 9.78384C16.4314 9.64942 16.1343 9.5822 15.8958 9.40114C15.6573 9.22007 15.5043 8.94564 15.1984 8.3968L14.9198 7.89712C13.8432 5.96571 13.3048 5 12.5 5C11.6952 5 11.1568 5.96571 10.0802 7.89712"
+//                         strokeWidth="1.5"
+//                         strokeLinecap="round"
+//                       ></path>{" "}
+//                       <path
+//                         d="M4.98987 2C4.98987 2 5.2778 3.45771 5.90909 4.08475C6.54037 4.71179 8 4.98987 8 4.98987C8 4.98987 6.54229 5.2778 5.91525 5.90909C5.28821 6.54037 5.01013 8 5.01013 8C5.01013 8 4.7222 6.54229 4.09091 5.91525C3.45963 5.28821 2 5.01013 2 5.01013C2 5.01013 3.45771 4.7222 4.08475 4.09091C4.71179 3.45963 4.98987 2 4.98987 2Z"
+//                         strokeLinejoin="round"
+//                       ></path>{" "}
+//                       <path
+//                         d="M18 5H20M19 6L19 4"
+//                         strokeWidth="1.5"
+//                         strokeLinecap="round"
+//                       ></path>{" "}
+//                     </g>
+//                   </svg>
+//                 </>
+//               }
+//             />{" "}
+//             <>
+//               <Links
+//                 link={"/now_playing"}
+//                 action={() => setOpen(false)}
+//                 text={"in theatres"}
+//                 svg={
+//                   <>
+//                     <svg
+//                       version="1.1"
+//                       id="Capa_1"
+//                       xmlns="http://www.w3.org/2000/svg"
+//                       xmlnsXlink="http://www.w3.org/1999/xlink"
+//                       viewBox="0 0 413.107 413.107"
+//                       height={"25px"}
+//                       className="group-hover/svg:fill-white  fill-slate-700 sm:fill-white group-hover/svg:stroke-white "
+//                       xmlSpace="preserve"
+//                       strokeWidth="0.004131070000000001"
+//                     >
+//                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+//                       <g
+//                         id="SVGRepo_tracerCarrier"
+//                         strokeLinecap="round"
+//                         strokeLinejoin="round"
+//                       ></g>
+//                       <g id="SVGRepo_iconCarrier">
+//                         {" "}
+//                         <g>
+//                           {" "}
+//                           <g>
+//                             {" "}
+//                             <path d="M228.749,361.374c-9.323,1.727-18.932,2.639-28.748,2.639c-86.831,0-157.458-70.641-157.458-157.458 c0-86.817,70.627-157.458,157.458-157.458c86.831,0,157.458,70.64,157.458,157.457c0,1.252-0.02,2.501-0.049,3.747 c0.701-0.065,1.408-0.104,2.127-0.104c9.631,0,17.881,5.992,21.234,14.441h0.23c6.312,0,12.332,1.271,17.822,3.566 c0.77-7.114,1.176-14.336,1.176-21.65c0-110.276-89.725-200-200-200c-110.276,0-200,89.724-200,200c0,110.275,89.724,200,200,200 c14.543,0,28.725-1.575,42.395-4.538c-8.426-8.399-13.646-20.012-13.646-32.82L228.749,361.374L228.749,361.374z"></path>{" "}
+//                             <path d="M178.717,105.287v87.93h-55.313c-11.728,0-21.257,9.529-21.257,21.284c0,11.742,9.529,21.271,21.257,21.271h76.598 c11.757,0,21.284-9.528,21.284-21.271V105.287c0-11.742-9.526-21.271-21.284-21.271S178.717,93.545,178.717,105.287z"></path>{" "}
+//                             <path d="M308.172,260.032c0-2.854-0.994-5.592-2.812-7.774V233.04c0-5.152-4.193-9.344-9.348-9.344h-0.195 c-5.15,0-9.342,4.191-9.342,9.344v19.218c-1.82,2.187-2.814,4.924-2.814,7.774c0,6.703,5.453,12.156,12.254,12.156h0.1 C302.719,272.188,308.172,266.735,308.172,260.032z"></path>{" "}
+//                             <path d="M336.736,252.258V233.04c0-5.152-4.193-9.344-9.348-9.344s-9.346,4.191-9.346,9.344v19.219 c-1.816,2.188-2.812,4.924-2.812,7.773c0,6.703,5.453,12.156,12.158,12.156c6.703,0,12.158-5.453,12.158-12.156 C339.549,257.181,338.555,254.442,336.736,252.258z"></path>{" "}
+//                             <path d="M358.766,223.696c-5.154,0-9.346,4.191-9.346,9.344v19.218c-1.818,2.182-2.812,4.919-2.812,7.774 c0,6.703,5.453,12.156,12.156,12.156c6.705,0,12.16-5.453,12.16-12.156c0-2.849-0.996-5.586-2.816-7.773V233.04 C368.107,227.888,363.916,223.696,358.766,223.696z"></path>{" "}
+//                             <path d="M380.23,238.137h-3.461v18.687h3.461c7.824,0,14.191,6.364,14.191,14.188v98.186c0,7.823-6.367,14.188-14.191,14.188 H274.354c-7.824,0-14.189-6.365-14.189-14.188v-98.186c0-7.822,6.365-14.188,14.189-14.188h3.461v-18.687h-3.461 c-18.129,0-32.877,14.747-32.877,32.873v98.186c0,18.126,14.748,32.873,32.877,32.873H380.23 c18.129,0,32.877-14.747,32.877-32.873V271.01C413.107,252.884,398.359,238.137,380.23,238.137z"></path>{" "}
+//                             <path d="M286.586,315.327c-6.727,0-12.195,5.47-12.195,12.194c0,6.724,5.471,12.193,12.195,12.193 c6.723,0,12.193-5.47,12.193-12.193S293.309,315.327,286.586,315.327z"></path>{" "}
+//                             <path d="M327.295,315.327c-6.725,0-12.193,5.47-12.193,12.194c0,6.724,5.469,12.193,12.193,12.193 c6.723,0,12.191-5.47,12.191-12.193S334.018,315.327,327.295,315.327z"></path>{" "}
+//                             <path d="M368.002,315.327c-6.725,0-12.191,5.47-12.191,12.194c0,6.724,5.469,12.193,12.191,12.193 c6.725,0,12.191-5.47,12.191-12.193C380.195,320.798,374.727,315.327,368.002,315.327z"></path>{" "}
+//                             <path d="M286.586,348.037c-6.727,0-12.195,5.47-12.195,12.192c0,6.726,5.471,12.196,12.195,12.196 c6.723,0,12.193-5.471,12.193-12.196C298.779,353.507,293.309,348.037,286.586,348.037z"></path>{" "}
+//                             <path d="M327.295,348.037c-6.725,0-12.193,5.47-12.193,12.192c0,6.726,5.469,12.196,12.193,12.196 c6.723,0,12.191-5.471,12.191-12.196C339.486,353.507,334.018,348.037,327.295,348.037z"></path>{" "}
+//                             <path d="M368.002,348.037c-6.725,0-12.191,5.47-12.191,12.192c0,6.726,5.469,12.196,12.191,12.196 c6.725,0,12.191-5.471,12.191-12.196C380.195,353.507,374.727,348.037,368.002,348.037z"></path>{" "}
+//                             <path d="M368.002,282.616c-6.725,0-12.191,5.471-12.191,12.195s5.469,12.195,12.191,12.195c6.725,0,12.191-5.471,12.191-12.195 C380.195,288.087,374.727,282.616,368.002,282.616z"></path>{" "}
+//                           </g>{" "}
+//                         </g>{" "}
+//                       </g>
+//                     </svg>
+//                   </>
+//                 }
+//               />{" "}
+//               <Links
+//                 link={"/tv"}
+//                 action={() => setOpen(false)}
+//                 text={"tv series"}
+//                 svg={
+//                   <>
+//                     <svg
+//                       viewBox="0 0 32 32"
+//                       height={"25px"}
+//                       className="group-hover/svg:fill-white  fill-slate-700 sm:fill-white group-hover/svg:stroke-white"
+//                       version="1.1"
+//                       xmlns="http://www.w3.org/2000/svg"
+//                       xmlnsXlink="http://www.w3.org/1999/xlink"
+//                       xmlnssketch="http://www.bohemiancoding.com/sketch/ns"
+//                     >
+//                       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+//                       <g
+//                         id="SVGRepo_tracerCarrier"
+//                         strokeLinecap="round"
+//                         strokeLinejoin="round"
+//                       ></g>
+//                       <g id="SVGRepo_iconCarrier">
+//                         {" "}
+//                         <title>tv-television</title>{" "}
+//                         <desc>Created with Sketch Beta.</desc> <defs> </defs>{" "}
+//                         <g
+//                           id="Page-1"
+//                           strokeWidth="1"
+//                           fillRule="evenodd"
+//                           sketchtype="MSPage"
+//                         >
+//                           {" "}
+//                           <g
+//                             id="Icon-Set-Filled"
+//                             sketchtype="MSLayerGroup"
+//                             transform="translate(-362.000000, -517.000000)"
+//                           >
+//                             {" "}
+//                             <path
+//                               d="M387,535 C385.343,535 384,533.657 384,532 C384,530.343 385.343,529 387,529 C388.657,529 390,530.343 390,532 C390,533.657 388.657,535 387,535 L387,535 Z M389,542 L385,542 C384.447,542 384,541.553 384,541 C384,540.447 384.447,540 385,540 L389,540 C389.553,540 390,540.447 390,541 C390,541.553 389.553,542 389,542 L389,542 Z M389,545 L385,545 C384.447,545 384,544.553 384,544 C384,543.447 384.447,543 385,543 L389,543 C389.553,543 390,543.447 390,544 C390,544.553 389.553,545 389,545 L389,545 Z M382,543 C382,544.104 381.104,545 380,545 L368,545 C366.896,545 366,544.104 366,543 L366,531 C366,529.896 366.896,529 368,529 L380,529 C381.104,529 382,529.896 382,531 L382,543 L382,543 Z M390,525 L380.746,525 L389.518,518.965 C389.981,518.646 390.113,517.988 389.813,517.496 C389.514,517.004 388.895,516.863 388.431,517.182 C388.431,517.182 378.821,523.817 378.009,524.307 L367.569,517.182 C367.106,516.863 366.486,517.004 366.187,517.496 C365.887,517.988 366.019,518.646 366.482,518.965 L375.254,525 L366,525 C363.791,525 362,526.791 362,529 L362,545 C362,547.209 363.791,549 366,549 L390,549 C392.209,549 394,547.209 394,545 L394,529 C394,526.791 392.209,525 390,525 L390,525 Z M386,533 L388,533 L388,531 L386,531 L386,533 Z M379,531 L369,531 C368.447,531 368,531.448 368,532 L368,542 C368,542.553 368.447,543 369,543 L379,543 C379.553,543 380,542.553 380,542 L380,532 C380,531.448 379.553,531 379,531 L379,531 Z"
+//                               id="tv-television"
+//                               sketchtype="MSShapeGroup"
+//                             >
+//                               {" "}
+//                             </path>{" "}
+//                           </g>{" "}
+//                         </g>{" "}
+//                       </g>
+//                     </svg>
+//                   </>
+//                 }
+//               />
+//               <Links
+//                 link={"/bookmarks"}
+//                 text={"bookmarks"}
+//                 action={() => setOpen(false)}
+//                 svg={
+//                   <>
+//                     <svg
+//                       viewBox="-4.8 -4.8 33.60 33.60"
+//                       className="group-hover/svg:fill-white  fill-slate-700 sm:fill-white group-hover/svg:stroke-white fill-gray-900 stroke-gray-900 "
+//                       height={"25px"}
+//                       xmlns="http://www.w3.org/2000/svg"
+//                     >
+//                       <g id="SVGRepo_bgCarrier" strokeWidth="0">
+//                         <rect
+//                           x="-4.8"
+//                           y="-4.8"
+//                           width="33.60"
+//                           height="33.60"
+//                           rx="16.8"
+//                           strokeWidth="0"
+//                         ></rect>
+//                       </g>
+//                       <g
+//                         id="SVGRepo_tracerCarrier"
+//                         strokeLinecap="round"
+//                         strokeLinejoin="round"
+//                       ></g>
+//                       <g id="SVGRepo_iconCarrier">
+//                         {" "}
+//                         <path
+//                           d="M19 1H8.99C7.89 1 7 1.9 7 3H17C18.1 3 19 3.9 19 5V18L21 19V3C21 1.9 20.1 1 19 1Z"
+//                           fill="#000000"
+//                         ></path>{" "}
+//                         <path
+//                           d="M5 5H15C16.1 5 17 5.9 17 7V23L10 20L3 23V7C3 5.9 3.9 5 5 5Z"
+//                           fill="#000000"
+//                         ></path>{" "}
+//                       </g>
+//                     </svg>
+//                   </>
+//                 }
+//               />{" "}
+//             </>
+//           </ul>
+//         </nav>
+//       </aside>
+//     </>
+//   );
+// }
