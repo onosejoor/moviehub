@@ -157,12 +157,6 @@ const Header = ({ data, search }) => {
             <span className="text-blue-700 ">Moviehub,</span> Your favourite
             movie finder
           </h1>
-          <Button
-            text={"Movies"}
-            className={
-              "bg-blue-800 m-auto text-xl py-3 text-white px-4 hover:bg-blue-500 transition-colors border-white border rounded-xl w-fit text-center"
-            }
-          />
         </div>
       </header>
     </>
