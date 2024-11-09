@@ -1,22 +1,5 @@
 import { getDetails } from "@/app/_lib/Functions";
 import Details from "@/app/ui/Details";
-import InternetError from "@/app/ui/InternetError";
-
-export async function generateMetadata({ params }) {
-  const id = (await params).id;
-
-  const finder = await getDetails(id);
-
-  if (finder.success) {
-    const { data } = finder;
-    const { overview, title } = data;
-
-    return {
-      title: title,
-      description: overview,
-    };
-  }
-}
 
 export default async function MovieDetail({ params }) {
   const { id } = await params;
@@ -40,7 +23,7 @@ export default async function MovieDetail({ params }) {
       runtime,
       genres,
       production_companies,
-      spoken_languages,
+      spoken_languages
     } = data;
 
     const posterImage = `${imgUrl}/w500/${poster_path}`;
@@ -66,5 +49,4 @@ export default async function MovieDetail({ params }) {
       />
     );
   }
-  return <InternetError />;
 }

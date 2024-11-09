@@ -4,7 +4,7 @@ const Footer = () => {
   const date = new Date().getFullYear();
   return (
     <>
-      <footer className="bg-blue-50 flex flex-col md:flex-row  justify-between items-center sm:ml-14 px-3 py-5 gap-5">
+      <footer className="bg-blue-50 flex flex-col md:flex-row  justify-between items-center ml-14 px-3 py-5 gap-5">
         <Link href={"/"}>
           <div className="flex items-center flex-col md:flex-row gap-3">
             <svg
