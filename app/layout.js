@@ -27,11 +27,13 @@ export default function RootLayout({ children }) {
           }}
           position="top-center"
         />
-        <main className="flex min-h-screen lg:max-w-[1400px] xl:m-auto">
-          <Nav />
-          <div className="flex-1">{children}</div>
-        </main>
-        <Footer />
+        <div className="lg:max-w-[1400px] xl:m-auto">
+          <main className="flex min-h-screen ">
+            <Nav />
+            <div className="flex-1">{children}</div>
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
