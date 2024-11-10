@@ -11,22 +11,35 @@ const Header = ({ data, search }) => {
   const [text, setText] = useState("");
   const [select, setSelect] = useState(search === "tv" ? "tv" : "movie");
   const [searchMovie, setSearchMovie] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function get() {
+    setError("");
+
+    setLoading(true);
     const searchAPI = await getSearchMovie(select, text);
     if (searchAPI.success) {
       const response = searchAPI.data;
-      const slicedData = response.slice(0, 5);
-      setSearchMovie(slicedData);
+      setSearchMovie(response);
+      setLoading(false);
     }
+    setLoading(false);
+    setError(`No result found with the keyword ${text}`);
   }
+
   useEffect(() => {
+    setError("");
     async function get() {
+      setLoading(true);
       const searchAPI = await getSearchMovie(select, text);
       if (searchAPI.success) {
         const response = searchAPI.data;
         setSearchMovie(response);
+        setLoading(false);
       }
+      setLoading(false);
+      return setError(`No result found with the keyword ${text}`);
     }
     get();
   }, [text, select]);
@@ -125,7 +138,7 @@ const Header = ({ data, search }) => {
                   </svg>
                 </button>
               </div>
-              {searchMovie.length > 0 ? (
+              {searchMovie.length > 0 && (
                 <div className="flex w-full md:max-w-[550px] overflow-auto no-scrollbar h-[350px] md:h-[450px] ml-auto flex-col gap-1 bg-transparent backdrop-blur-md backdrop-brightness-50 rounded-xl p-2  border-2 border-white ">
                   {searchMovie.map((movie) => {
                     return (
@@ -133,13 +146,17 @@ const Header = ({ data, search }) => {
                     );
                   })}
                 </div>
-              ) : text.trim() ? (
-                <div
-                  className=" h-fit px-5 py-2 border-[2px] rounded-lg backdrop-brightness-50 border-white text-white backdrop-blur-lg items-center capitalize"
-                >
-                  No Result found with the keyword {text}
+              )}
+              {loading && (
+                <div className=" h-fit px-5 py-2 border-[2px] w-full rounded-lg backdrop-brightness-50 md:max-w-[550px] overflow-hidden text-ellipsis border-white text-white backdrop-blur-lg items-center capitalize">
+                  Loading...
                 </div>
-              ) : null}
+              )}
+              {error.trim() && (
+                <div className=" h-fit px-5 py-2 border-[2px] w-full md:max-w-[550px] overflow-hidden text-ellipsis rounded-lg backdrop-brightness-50 border-white text-white backdrop-blur-lg items-center capitalize">
+                  {error}
+                </div>
+              )}
             </div>
           </>
         </div>
