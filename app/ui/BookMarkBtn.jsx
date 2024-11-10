@@ -40,12 +40,13 @@ export default function BookMarkBtn({
     }
   }
   return !deleteBtn ? (
-    <button className="border-none bg-transparent focus:*:fill-blue-500" onClick={setCookie}>
+    <button className="border-none bg-transparent group " onClick={setCookie}>
       <span>
         <svg
           viewBox="-4.8 -4.8 33.60 33.60"
           fill="blue"
           height={"30px"}
+          className="group-focus:fill-blue-500"
           xmlns="http://www.w3.org/2000/svg"
         >
           <g id="SVGRepo_bgCarrier" strokeWidth="0">

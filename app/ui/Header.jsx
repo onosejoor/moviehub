@@ -11,12 +11,9 @@ const Header = ({ data, search }) => {
   const [text, setText] = useState("");
   const [select, setSelect] = useState(search === "tv" ? "tv" : "movie");
   const [searchMovie, setSearchMovie] = useState([]);
-  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   async function get() {
-    setError("");
-
     setLoading(true);
     const searchAPI = await getSearchMovie(select, text);
     if (searchAPI.success) {
@@ -24,22 +21,18 @@ const Header = ({ data, search }) => {
       setSearchMovie(response);
       setLoading(false);
     }
-    setLoading(false);
-    setError(`No result found with the keyword ${text}`);
   }
 
   useEffect(() => {
-    setError("");
     async function get() {
       setLoading(true);
       const searchAPI = await getSearchMovie(select, text);
+
       if (searchAPI.success) {
         const response = searchAPI.data;
         setSearchMovie(response);
         setLoading(false);
       }
-      setLoading(false);
-      return setError(`No result found with the keyword ${text}`);
     }
     get();
   }, [text, select]);
@@ -152,9 +145,9 @@ const Header = ({ data, search }) => {
                   Loading...
                 </div>
               )}
-              {error.trim() && (
+              {searchMovie.length === 0 && text.trim() && !loading && (
                 <div className=" h-fit px-5 py-2 border-[2px] w-full md:max-w-[550px] overflow-hidden text-ellipsis rounded-lg backdrop-brightness-50 border-white text-white backdrop-blur-lg items-center capitalize">
-                  {error}
+                  {`No result found with the keyword ${text}`}
                 </div>
               )}
             </div>
